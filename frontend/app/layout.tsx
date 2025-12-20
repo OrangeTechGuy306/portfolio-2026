@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Hanafi Taofiq " }],
   openGraph: {
     title: "Hanafi Taofiq - Software Engineer",
-    description: "Professional portfolio showcasing modern web development projects",
+    description: "Professional portfolio of Hanafi Taofiq  , a passionate Software Engineer specializing in modern web and mobile technologies.",
     type: "website",
   },
 }
