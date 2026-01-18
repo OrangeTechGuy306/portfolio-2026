@@ -33,10 +33,10 @@ export default function About() {
 
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-12 items-center mb-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            // initial={{ opacity: 0, x: -50 }}
+            // whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            // viewport={{ once: true }}
             className="fade-in"
           >
             <div className="relative aspect-square max-w-md mx-auto">
