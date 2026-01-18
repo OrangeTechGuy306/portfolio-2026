@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Heart, ArrowUp } from "lucide-react"
+import { Heart, ArrowUp, Github, Linkedin, Twitter, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Footer() {
@@ -20,10 +20,29 @@ export default function Footer() {
             <motion.div whileHover={{ scale: 1.05 }} className="text-3xl font-bold gradient-text mb-4">
               Hanafi Taofiq
             </motion.div>
-            <p className="text-foreground/60 leading-relaxed">
+            <p className="text-foreground/60 leading-relaxed mb-6">
               Full Stack Developer passionate about creating exceptional digital experiences through innovative web
               solutions.
             </p>
+            <div className="flex space-x-4">
+              {[
+                { icon: Github, href: "https://github.com/orangetechguy306", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/hanafi-taofiq-b6345a229", label: "LinkedIn" },
+                { icon: Twitter, href: "https://x.com/OrangeTechguy", label: "Twitter" },
+                { icon: Mail, href: "mailto:hanafitaofiq95@gmail.com", label: "Email" },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-foreground/5 hover:bg-orange-500/20 text-foreground/60 hover:text-orange-500 transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}

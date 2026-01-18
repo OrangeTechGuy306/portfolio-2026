@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Code, Coffee, Users, Award, House } from "lucide-react"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function About() {
@@ -38,12 +39,14 @@ export default function About() {
             viewport={{ once: true }}
             className="fade-in"
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl transform rotate-6"></div>
-              <img
-                src="/author.jpg"
+            <div className="relative aspect-square max-w-md mx-auto">
+              <Image
+                src="/orange.jpg"
                 alt="HT"
-                className="relative rounded-2xl shadow-2xl w-full max-w-md mx-auto"
+                fill
+                className="rounded-2xl shadow-2xl object-cover"
+                sizes="(max-width: 768px) 100vw, 448px"
+                priority
               />
             </div>
           </motion.div>
@@ -69,7 +72,7 @@ export default function About() {
               with the developer community.
             </p>
             <div className="flex flex-wrap gap-4">
-              {["React", "Next.js", "TypeScript", "Node.js", "Python", "AWS"].map((tech) => (
+              {["React", "Next.js", "Angular", "React Native", "TypeScript", "Node.js", "AWS"].map((tech) => (
                 <span
                   key={tech}
                   className="px-4 py-2 bg-orange-500/10 text-orange-500 rounded-full text-sm font-medium"

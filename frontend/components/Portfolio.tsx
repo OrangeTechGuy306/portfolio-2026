@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ExternalLink, Github, X, Loader2 } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -31,7 +32,7 @@ export default function Portfolio() {
             setProjects(result.data.portfolios)
 
             // Extract unique categories
-            const uniqueCategories = [...new Set(result.data.portfolios.map((p: any) => p.category))]
+            const uniqueCategories = [...new Set(result.data.portfolios.map((p: any) => p.category as string))] as string[]
             setCategories(['All', ...uniqueCategories])
           }
         } else {
@@ -51,88 +52,104 @@ export default function Portfolio() {
   const fallbackProjects = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      category: "E-commerce",
-      description:
-        "A full-featured e-commerce platform with payment integration, inventory management, and admin dashboard.",
-      longDescription:
-        "This comprehensive e-commerce platform was built using Next.js, TypeScript, and Stripe for payments. It features a modern design, real-time inventory tracking, order management, and a powerful admin dashboard. The platform handles thousands of products and processes hundreds of orders daily.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+      title: "TripMusee - Real Estate",
+      category: "Real Estate",
+      description: "A comprehensive real estate platform for property search and management.",
+      longDescription: "Built with Next.js and high-performance technologies, TripMusee offers a seamless experience for finding and managing real estate properties globally.",
+      image: "/Screenshot 2026-01-18 at 1.22.50 PM.png",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+      liveUrl: "https://tripmusee.com/",
+      githubUrl: "https://github.com/orangetechguy306",
       featured: true,
     },
     {
       id: 2,
-      title: "Task Management App",
-      category: "Web App",
-      description:
-        "A collaborative task management application with real-time updates and team collaboration features.",
-      longDescription:
-        "Built with React and Socket.io for real-time collaboration, this task management app allows teams to organize projects, assign tasks, and track progress. Features include drag-and-drop kanban boards, time tracking, file attachments, and detailed analytics.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Material-UI"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+      title: "Amma Couture - Fashion",
+      category: "Fashion Design",
+      description: "A premium fashion design and e-commerce showcase.",
+      longDescription: "Experience the world of high-end fashion with Amma Couture, featuring creative designs and a smooth shopping experience built with modern web tools.",
+      image: "/Screenshot 2026-01-18 at 1.23.17 PM.png",
+      technologies: ["React", "Custom CSS", "Node.js", "MongoDB"],
+      liveUrl: "https://ammacouture.com/",
+      githubUrl: "https://github.com/orangetechguy306",
       featured: false,
     },
     {
       id: 3,
-      title: "Fitness Tracking Mobile App",
-      category: "Mobile App",
-      description: "Cross-platform mobile app for fitness tracking with workout plans and progress monitoring.",
-      longDescription:
-        "A comprehensive fitness tracking application built with React Native. Users can log workouts, track progress, follow custom workout plans, and monitor their fitness journey. The app includes social features, achievement badges, and integration with wearable devices.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React Native", "Firebase", "Redux", "Chart.js"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+      title: "EnlightMeEdu - Consultancy",
+      category: "Education",
+      description: "Educational consultancy platform for global student guidance.",
+      longDescription: "EnlightMeEdu provides expert guidance for students seeking international education, featuring an interactive platform built with React and Next.js.",
+      image: "/Screenshot 2026-01-18 at 1.23.42 PM.png",
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "https://www.enlightmeedu.com/",
+      githubUrl: "https://github.com/orangetechguy306",
       featured: true,
     },
     {
       id: 4,
-      title: "Restaurant Landing Page",
-      category: "Landing Page",
-      description: "Modern and responsive landing page for a high-end restaurant with online reservation system.",
-      longDescription:
-        "An elegant landing page designed for a luxury restaurant featuring smooth animations, an interactive menu, online reservation system, and integration with social media. The design emphasizes the restaurant's premium brand and creates an immersive dining experience preview.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["Next.js", "Framer Motion", "Tailwind CSS", "Sanity CMS"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: false,
+      title: "TelescopeHR - SaaS",
+      category: "HR System",
+      description: "Enterprise HR management platform with secure data handling.",
+      longDescription: "Telescope's use and transfer to any other app of information received from Google APIs will adhere to Google API Services User Data Policy, including the Limited Use requirements. TelescopeHR does not share any user data with third-party tools, including AI models.",
+      image: "/Screenshot 2026-01-18 at 1.34.07 PM.png",
+      technologies: ["Next.js", "Google APIs", "Prisma", "Auth.js"],
+      liveUrl: "https://telescope-orcin.vercel.app/",
+      githubUrl: "https://github.com/orangetechguy306",
+      featured: true,
     },
     {
       id: 5,
-      title: "Crypto Trading Dashboard",
-      category: "Web App",
-      description: "Real-time cryptocurrency trading dashboard with advanced charting and portfolio management.",
-      longDescription:
-        "A sophisticated trading dashboard that provides real-time cryptocurrency data, advanced charting tools, portfolio tracking, and trading signals. Built with modern web technologies to handle high-frequency data updates and provide a seamless trading experience.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "D3.js", "WebSocket", "Node.js", "Redis"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+      title: "Waybox App - Music App",
+      category: "Mobile App",
+      description: "Cross-platform mobile music application for high-quality audio streaming.",
+      longDescription: "Waybox brings a rich music experience to your fingertips, optimized for performance and built with React Native and robust backend services.",
+      image: "/Screenshot 2026-01-18 at 1.34.41 PM.png",
+      technologies: ["React Native", "Audio Streaming", "Node.js", "MongoDB"],
+      liveUrl: "https://play.google.com/store/apps/details?id=com.westshoresolutions.wayboxapp",
+      githubUrl: "https://github.com/orangetechguy306",
       featured: true,
     },
     {
       id: 6,
-      title: "Learning Management System",
-      category: "Web App",
-      description: "Comprehensive LMS platform for online education with course management and student tracking.",
-      longDescription:
-        "A full-featured learning management system that enables educators to create courses, manage students, track progress, and facilitate online learning. Includes video streaming, quiz systems, discussion forums, and detailed analytics for both instructors and students.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["Next.js", "PostgreSQL", "AWS S3", "Stripe", "Socket.io"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+      title: "Goshen Realm - Ecommerce",
+      category: "Mobile App",
+      description: "A feature-rich e-commerce mobile application built with React Native.",
+      longDescription: "Experience seamless mobile shopping with Goshen Realm, a high-performance cross-platform application developed for both iOS and Android users.",
+      image: "/Screenshot 2026-01-18 at 1.34.58 PM.png",
+      technologies: ["React Native", "Redux", "Express.js", "Firebase"],
+      liveUrl: "https://play.google.com/store/apps/details?id=com.unitech.goshenrealm",
+      githubUrl: "https://github.com/orangetechguy306",
       featured: false,
+    },
+    {
+      id: 7,
+      title: "M4 Solutions - Graphics",
+      category: "Graphics & Print",
+      description: "Official portal for a graphics design and printing press industry.",
+      longDescription: "M4 Solutions showcases the best in creative design and high-quality printing services, providing a modern web presence for a leading industry player.",
+      image: "/Screenshot 2026-01-18 at 1.37.54 PM.png",
+      technologies: ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
+      liveUrl: "https://haqqtech001.github.io/m4-solutions-website/",
+      githubUrl: "https://github.com/haqqtech001/m4-solutions-website",
+      featured: false,
+    },
+    {
+      id: 8,
+      title: "Al Mahbub - Procurement",
+      category: "Procurement",
+      description: "International procurement and supply chain management platform.",
+      longDescription: "A robust platform for international trade and procurement, streamlining supply chain processes and ensuring secure transactions.",
+      image: "/Screenshot 2026-01-18 at 1.38.09 PM.png",
+      technologies: ["Next.js", "Tailwind CSS", "Directus CMS", "PostgreSQL"],
+      liveUrl: "https://www.almahbubinternational.com/",
+      githubUrl: "https://github.com/orangetechguy306",
+      featured: true,
     },
   ]
 
   // Use API data if available, otherwise fallback to demo data
-  const displayProjects = projects.length > 0 ? projects : fallbackProjects
+  const displayProjects = projects.length > 0 ? projects : (fallbackProjects as any as PortfolioType[])
   const filteredProjects =
     selectedCategory === "All"
       ? displayProjects
@@ -199,11 +216,13 @@ export default function Portfolio() {
                   className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group gradient-border"
                   onClick={() => setSelectedProject(project)}
                 >
-                  <div className="relative overflow-hidden">
-                    <img
+                  <div className="relative overflow-hidden aspect-video">
+                    <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -257,11 +276,13 @@ export default function Portfolio() {
                 className="bg-background rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="relative">
-                  <img
+                <div className="relative aspect-video">
+                  <Image
                     src={selectedProject.image || "/placeholder.svg"}
                     alt={selectedProject.title}
-                    className="w-full h-64 md:h-80 object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1200px) 100vw, 1024px"
                   />
                   <Button
                     variant="ghost"

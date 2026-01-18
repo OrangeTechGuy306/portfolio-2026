@@ -47,7 +47,7 @@ export default function Hero() {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/orangetechguy306", label: "GitHub" },
-    { icon: Linkedin, href: "https:www.linkedin.com/in/hanafi-taofiq-b6345a229", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/hanafi-taofiq-b6345a229", label: "LinkedIn" },
     { icon: Twitter, href: "https://x.com/OrangeTechguy", label: "Twitter" },
     { icon: Mail, href: "mailto:hanafitaofiq95@gmail.com", label: "Email" },
   ]
@@ -55,12 +55,12 @@ export default function Hero() {
   return (
     <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 parallax-bg">
+      <div className="absolute inset-0 parallax-bg hidden md:block">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-orange-600/10" />
-        {[...Array(50)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="particle absolute w-2 h-2 bg-orange-400/30 rounded-full"
+            className="particle absolute w-1.5 h-1.5 bg-orange-400/20 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
