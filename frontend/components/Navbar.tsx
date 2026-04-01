@@ -32,8 +32,8 @@ export default function Navbar() {
 
   const downloadResume = () => {
     const link = document.createElement("a")
-    link.href = "/hanafi_taofiq.pdf"
-    link.download = "/hanafi_taofiq.pdf"
+    link.href = "/hanafi_taofiq_swe.pdf"
+    link.download = "/hanafi_taofiq_swe.pdf"
     link.click()
   }
 
